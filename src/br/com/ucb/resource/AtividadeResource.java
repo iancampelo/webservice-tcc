@@ -348,6 +348,12 @@ public class AtividadeResource{
 	 * @param Json String (Usuario)
 	 * @return Float kma
 	 * @throws Exception
+	 * 
+	 * 
+	 * INCORRECT(-1, R.string.incorrect),
+        P_CORRECT(0, R.string.partially_correct),
+        CORRECT(1, R.string.correct);
+	 * 
 	 */
 	@POST
 	@Path("setKmaKmb")
@@ -369,35 +375,35 @@ public class AtividadeResource{
 		}
 		else if(ativ.getPredicao() == 0d && ativ.getResultado() == -1d){ 
 			ativ.setKma(-0.5d);//resultado incorreto, predição parcial
-			ativ.setKmb(-0.5d);
+			ativ.setKmb(0.5d);
 		}
 		else if(ativ.getPredicao() == 1d && ativ.getResultado() == -1d){ 
 			ativ.setKma(-1d);//resultado incorreto, predição correta
-			ativ.setKmb(-1d);
+			ativ.setKmb(1d);
 		}
 		else if(ativ.getPredicao() == -1d && ativ.getResultado() == 0d){ 
 			ativ.setKma(-0.5d);//resultado parcial, predição incorreta
-			ativ.setKma(0.5d);
+			ativ.setKmb(-0.5d);
 		}
 		else if(ativ.getPredicao() == 0d && ativ.getResultado() == 0d){ 
 			ativ.setKma(1d);//resultado parcial, predição parcial
-			ativ.setKma(0d);
+			ativ.setKmb(0d);
 		}
 		else if(ativ.getPredicao() == 1d && ativ.getResultado() == 0d){ 
 			ativ.setKma(-0.5d);//resultado parcial, predição correta
-			ativ.setKma(-0.5d);
+			ativ.setKmb(0.5d);
 		}
 		else if(ativ.getPredicao() == 1d && ativ.getResultado() == 1d){ 
 			ativ.setKma(1d);
-			ativ.setKma(0d);
+			ativ.setKmb(0d);
 		}
 		else if(ativ.getPredicao() == 0d && ativ.getResultado() == 1d){ 
 			ativ.setKma(-0.5d);
-			ativ.setKma(0.5d);
+			ativ.setKmb(-0.5d);
 		}
 		else if(ativ.getPredicao() == -1d && ativ.getResultado() == 1d){ 
 			ativ.setKma(-1d);
-			ativ.setKma(1d);
+			ativ.setKmb(-1d);
 		}
 		return adao.atualizar(ativ)?"S":"N";
 	}

@@ -254,13 +254,19 @@ public class AtividadeDao extends ConnectionFactory {
 			ps.setString	(8,  ativ.getObjetivo());
 			ps.setString	(9,  ativ.getAnotacoes());
 			ps.setTime 		(10, ativ.getTempoGasto());
-			if(ativ.getKma()!=null&&ativ.getKma()!=Double.NaN)
-				ps.setDouble 	(11, ativ.getKma());
+			if(ativ.getKma()!=null)
+				if(ativ.getKma()!=Double.NaN)
+					ps.setDouble 	(11, ativ.getKma());
+				else
+					ps.setDouble 	(11, Double.NaN);
 			else
-				ps.setDouble 	(11, Double.NaN);
+				ps.setDouble 	(1, Double.NaN);
 			ps.setInt   	(12, ativ.getResultado());
-			if(ativ.getKma()!=null&&ativ.getKmb()!=Double.NaN)
-				ps.setDouble 	(13, ativ.getKmb());
+			if(ativ.getKmb()!=null)
+				if(ativ.getKmb()!=Double.NaN)
+					ps.setDouble 	(13, ativ.getKmb());
+				else
+					ps.setDouble 	(13, Double.NaN);
 			else
 				ps.setDouble 	(13, Double.NaN);
 			ps.setInt		(14, ativ.getId());
