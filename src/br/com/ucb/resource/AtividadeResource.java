@@ -220,9 +220,9 @@ public class AtividadeResource{
 		ArrayList<Atividade> atividades = new ArrayList<Atividade>();
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().serializeNulls().create();
 
-		float paramA = 0; // numero de vezes que disse que teria sucesso e teve
-		float paramB = 0; // numero de vezes que disse que nao teria sucesso e teve
-		float paramC = 0; // numero de vezes que disse que teria sucesso e não teve
+		float paramA = 0; // numero de vezes que disse que teria sucesso e teve ou falou que seria parcial e foi
+		float paramB = 0; // numero de vezes que disse que nao teria sucesso e teve ou foi parcial
+		float paramC = 0; // numero de vezes que disse que teria sucesso ou parcial e não teve
 		float paramD = 0; // numero de vezes que disse que nao teria sucesso e nao teve
 
 		adao = adao.getInstancia();
